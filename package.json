@@ -1,0 +1,45 @@
+{
+  "name": "gateway_template",
+  "version": "1.0.0",
+  "description": "an API Gatway Template",
+  "main": "index.js",
+  "repository": "https://github.com/tetrohed/gateway_template.git",
+  "author": "tetrohed <armin65@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.5.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.1.0",
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/register": "^7.5.5",
+    "@testing-library/dom": "^5.6.1",
+    "@testing-library/jest-dom": "^4.0.0",
+    "eslint": "6.2.2",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "babel index.js --out-dir dist/index.js",
+    "start": "yarn run build && node dist/index.js",
+    "dev": "nodemon --exec yarn start"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "nodemonConfig": {
+    "ignore": ["test/*", "dist/*"],
+    "delay": 2500
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "index.js"
+    ]
+  }
+}
